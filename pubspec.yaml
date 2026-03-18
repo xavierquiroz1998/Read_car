@@ -1,0 +1,48 @@
+name: read_car
+description: OBD2 ELM327 vehicle monitor - real-time diagnostics and fuel tracking
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State management
+  flutter_riverpod: ^2.5.1
+
+  # Bluetooth
+  flutter_blue_plus: ^1.32.12
+
+  # Local persistence
+  hive_flutter: ^1.1.0
+
+  # Navigation
+  go_router: ^13.2.4
+
+  # Charts / Gauges
+  fl_chart: ^0.68.0
+
+  # Utilities
+  equatable: ^2.0.5
+  permission_handler: ^11.3.1
+  logger: ^2.3.0
+  intl: ^0.19.0
+  url_launcher: ^6.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  build_runner: ^2.4.9
+  hive_generator: ^2.0.1
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
