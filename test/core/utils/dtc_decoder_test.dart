@@ -87,6 +87,92 @@ void main() {
         expect(DtcDecoder.describe(code), isNot(contains('consult a mechanic')));
       }
     });
+
+    test('camshaft/crankshaft codes P0010–P0022 have descriptions', () {
+      final codes = ['P0010', 'P0011', 'P0012', 'P0013', 'P0014', 'P0015',
+        'P0016', 'P0017', 'P0020', 'P0021', 'P0022'];
+      for (final code in codes) {
+        expect(DtcDecoder.describe(code), isNot(contains('consult a mechanic')));
+      }
+    });
+
+    test('O2 sensor codes Bank 2 have descriptions', () {
+      final codes = ['P0150', 'P0151', 'P0152', 'P0153', 'P0154', 'P0155',
+        'P0156', 'P0157', 'P0158', 'P0159', 'P0160', 'P0161'];
+      for (final code in codes) {
+        expect(DtcDecoder.describe(code), isNot(contains('consult a mechanic')));
+      }
+    });
+
+    test('injector codes P0201–P0208 have descriptions', () {
+      for (int i = 1; i <= 8; i++) {
+        final desc = DtcDecoder.describe('P020$i');
+        expect(desc, contains('Cylinder $i'));
+      }
+    });
+
+    test('knock sensor codes have descriptions', () {
+      final codes = ['P0325', 'P0326', 'P0327', 'P0328', 'P0330', 'P0332', 'P0333'];
+      for (final code in codes) {
+        expect(DtcDecoder.describe(code), isNot(contains('consult a mechanic')));
+      }
+    });
+
+    test('ignition coil codes P0351–P0356 have descriptions', () {
+      for (int i = 1; i <= 6; i++) {
+        final desc = DtcDecoder.describe('P035$i');
+        expect(desc, contains('Ignition Coil'));
+      }
+    });
+
+    test('idle control codes P0505–P0507 have descriptions', () {
+      final codes = ['P0505', 'P0506', 'P0507'];
+      for (final code in codes) {
+        expect(DtcDecoder.describe(code), isNot(contains('consult a mechanic')));
+      }
+    });
+
+    test('transmission gear ratio codes P0731–P0735 have descriptions', () {
+      for (int i = 1; i <= 5; i++) {
+        final desc = DtcDecoder.describe('P073$i');
+        expect(desc, contains('Gear $i'));
+      }
+    });
+
+    test('torque converter codes P0740–P0744 have descriptions', () {
+      final codes = ['P0740', 'P0741', 'P0742', 'P0743', 'P0744'];
+      for (final code in codes) {
+        expect(DtcDecoder.describe(code), contains('Torque Converter'));
+      }
+    });
+
+    test('turbo/diesel codes have descriptions', () {
+      final codes = ['P0234', 'P0235', 'P0299', 'P0380', 'P0381'];
+      for (final code in codes) {
+        expect(DtcDecoder.describe(code), isNot(contains('consult a mechanic')));
+      }
+    });
+
+    test('ABS wheel speed C-codes have descriptions', () {
+      final codes = ['C0035', 'C0040', 'C0045', 'C0050'];
+      for (final code in codes) {
+        expect(DtcDecoder.describe(code), contains('Wheel Speed'));
+      }
+    });
+
+    test('body B-codes have descriptions', () {
+      final codes = ['B0001', 'B0002', 'B0010', 'B1318', 'B2799'];
+      for (final code in codes) {
+        expect(DtcDecoder.describe(code), isNot(contains('consult a mechanic')));
+      }
+    });
+
+    test('network U-codes for lost communication have descriptions', () {
+      final codes = ['U0100', 'U0101', 'U0121', 'U0140', 'U0151', 'U0155'];
+      for (final code in codes) {
+        expect(DtcDecoder.describe(code), contains('Lost Communication'));
+      }
+    });
   });
 
   // ══════════════════════════════════════════════════════════════════════════
